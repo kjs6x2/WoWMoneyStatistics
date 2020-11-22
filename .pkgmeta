@@ -1,21 +1,23 @@
 package-as: WoWMoneyStatistics
+
 enable-nolib-creation: no
+
 externals:
-   libs/CallbackHandler-1.0:
-      url: https://repos.wowace.com/wow/callbackhandler/trunk/CallbackHandler-1.0
-      tag: latest
-   libs/LG
-      url: http://svn.wowace.com/root/trunk/GraphLib
-      tag: latest
-   libs/LibDataBroker-1.1
-      url: git://github.com/tekkub/libdatabroker-1-1.git
-      tag: latest
-   libs/LibDBIcon-1.0
-      url: https://repos.wowace.com/wow/libdbicon-1-0/trunk/LibDBIcon-1.0
-      tag: latest
-   libs/LibStub
-      url: https://repos.wowace.com/wow/libstub/trunk
-      tag: latest
-   libs/LibUIDropDownMenu
-      url: https://repos.wowace.com/wow/libuidropdownmenu/trunk
-      tag: latest
+  libs/CallbackHandler-1.0:
+    url: https://repos.wowace.com/wow/callbackhandler/trunk/CallbackHandler-1.0
+    tag: latest
+  libs/LG
+    url: http://svn.wowace.com/root/trunk/GraphLib
+    tag: latest
+  libs/LibDataBroker-1.1
+    url: git://github.com/tekkub/libdatabroker-1-1.git
+    tag: latest
+  libs/LibDBIcon-1.0
+    url: https://repos.wowace.com/wow/libdbicon-1-0/trunk/LibDBIcon-1.0
+    tag: latest
+  libs/LibStub
+    url: https://repos.wowace.com/wow/libstub/trunk
+    tag: latest
+  libs/LibUIDropDownMenu
+    url: https://repos.wowace.com/wow/libuidropdownmenu/trunk
+    tag: latest
