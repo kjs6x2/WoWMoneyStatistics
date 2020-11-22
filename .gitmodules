@@ -1,0 +1,9 @@
+[submodule ".build"]
+	path = .build
+	url = https://github.com/kjs6x2/AddonUtilities.git
+[submodule ".tests"]
+	path = .tests
+	url = https://github.com/kjs6x2/WoWMoneyStatisticsTests.git
+[submodule ".docs"]
+	path = .docs
+	url = https://github.com/kjs6x2/WoWMoneyStatisticsDocs.git
