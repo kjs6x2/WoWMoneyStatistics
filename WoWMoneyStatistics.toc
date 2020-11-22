@@ -27,4 +27,6 @@ trackers\embed.xml
 StatDisplay.lua
 Debug.lua
 
-#.tests\embed.xml
+#@debug@
+.tests\embed.xml
+#@end-debug@
