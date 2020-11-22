@@ -1,4 +1,4 @@
-package-as: WoWMoneyStatistics @file-revision@
+package-as: WoWMoneyStatistics
 enable-nolib-creation: no
 externals:
    libs/CallbackHandler-1.0:
