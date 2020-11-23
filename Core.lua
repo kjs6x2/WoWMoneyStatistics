@@ -284,31 +284,6 @@ local function InitializePersistantVariables(newSession)
                end
             end
          end
-
-         --[===[--[===[@debug
-         -- Currency Information
-         local NumCurrencies = GetCurrencyListSize()
-         _G.WOWMMChar.Currency = _G.WOWMMChar.Currency or {}
-         _G.WOWMMChar.Currency[k] = _G.WOWMMChar.Currency[k] or {}
-         for i = 1, NumCurrencies do
-            local currency, isHeader, _, isUnused = GetCurrencyListInfo(i)
-            if not isHeader and not isUnused then
-               _G.WOWMMChar.Currency[k][currency] = _G.WOWMMChar.Currency[k][currency] or {} 
-               _G.WOWMMChar.Currency[k][currency].Spent = _G.WOWMMChar.Currency[k][currency].Spent or 0
-               _G.WOWMMChar.Currency[k][currency].Earned = _G.WOWMMChar.Currency[k][currency].Earned or 0
-            end
-         end
-         if invalidID then
-            for i = 1, NumCurrencies do
-               local currency, isHeader, _, isUnused = GetCurrencyListInfo(i)
-               if not isHeader and not isUnused then
-                  _G.WOWMMChar.Currency[k][currency] = {}
-                  _G.WOWMMChar.Currency[k][currency].Spent = 0
-                  _G.WOWMMChar.Currency[k][currency].Earned = 0
-               end
-            end
-         end
-         --@end-debug]===]
       end
    end
 
