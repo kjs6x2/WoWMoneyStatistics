@@ -187,18 +187,16 @@ local function EventHandler(self, event, ...)
    end
 
    if event == "SEND_MAIL_MONEY_CHANGED" then
-      if SendMailSendMoneyButton:GetChecked() then
-         MailTracker.SentMoney = -1 * MoneyInputFrame_GetCopper(SendMailMoney)
+      local sentMoney = -1 * GetSendMailMoney()
+      if sentMoney < MailTracker.SentMoney then
+         MailTracker.SentMoney = sentMoney
+      end
+
+      local postageCost = GetSendMailMoney() - GetSendMailPrice()
+      if postageCost < MailTracker.SentPostage then
+         MailTracker.SentPostage = postageCost
       end
       MailTracker.SentRecipient = SendMailNameEditBox:GetText()
-
-      local price = -1 * GetSendMailPrice()
-      if price < MailTracker.SentMoney then
-         local postage = price - MailTracker.SentMoney
-         if postage < MailTracker.SentPostage then
-            MailTracker.SentPostage = postage
-         end
-      end
    end
 end
 

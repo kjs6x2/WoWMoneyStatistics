@@ -1,7 +1,7 @@
 ## Interface: 90002
 ## Title: WoW Money Statistics
 ## Notes: View statistics on gold usage
-## Version: 2.3.0
+## Version: 2.3.1-a01
 ## Author: Ræy - US-Hyjal
 ## SavedVariablesPerCharacter: WOWMMChar, WOWMSZoneLoot
 ## SavedVariables: WOWMMGlobal, WOWMSTracker, WOWMSZone, WOWMSProfile, WOWMSDebug
