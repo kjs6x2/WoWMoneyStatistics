@@ -4,7 +4,7 @@ enable-nolib-creation: no
 
 externals:
   libs/CallbackHandler-1.0: https://repos.wowace.com/wow/callbackhandler/trunk/CallbackHandler-1.0
-  libs/LG: http://svn.wowace.com/root/trunk/GraphLib
+  libs/LG: https://repos.curseforge.com/wow/libgraph-2-0/trunk/LibGraph-2.0
   libs/LibDataBroker-1.1: git://github.com/tekkub/libdatabroker-1-1.git
   libs/LibDBIcon-1.0: https://repos.wowace.com/wow/libdbicon-1-0/trunk/LibDBIcon-1.0
   libs/LibStub: https://repos.wowace.com/wow/libstub/trunk
