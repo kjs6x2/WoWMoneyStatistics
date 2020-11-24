@@ -10,4 +10,4 @@ externals:
   libs/LibStub: https://repos.wowace.com/wow/libstub/trunk
   libs/LibUIDropDownMenu: https://repos.wowace.com/wow/libuidropdownmenu/tags/v3.02.9000136272.01/LibUIDropDownMenu
 
-  manual-changelog: docs/ChangeLog.txt
+  manual-changelog: CHANGELOG.txt
