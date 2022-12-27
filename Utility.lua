@@ -249,8 +249,8 @@ function util.ItemLocationCleanup()
    -- Look through bags to find itemIDs
    local IDs = {}
    for i = 0, NUM_BAG_FRAMES do
-      for j = 1, GetContainerNumSlots(i) do
-         local itemID = select(10, GetContainerItemInfo(i, j))
+      for j = 1, C_Container.GetContainerNumSlots(i) do
+         local itemID = select(10, C_Container.GetContainerItemInfo(i, j))
 
          if itemID ~= nil then
             itemID = tonumber(itemID)

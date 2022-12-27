@@ -105,7 +105,7 @@ local function GetBagSlotIdx(bag, slot)
 end
 
 local function ClearBag(bag)
-   for i = 1, GetContainerNumSlots(bag) do
+   for i = 1, C_Container.GetContainerNumSlots(bag) do
       local idx = GetBagSlotIdx(bag, i)
       util.removeFromSet(BagLootables, idx)
       util.removeFromSet(BagLootableCount, idx)
@@ -127,10 +127,10 @@ local function CatalogLootableBagItems()
    for bag = 0, NUM_BAG_FRAMES do
       ClearBag(bag)
 
-      for i = 1, GetContainerNumSlots(bag) do
-         local count = select(2, GetContainerItemInfo(bag, i))
-         local lootable = select(6, GetContainerItemInfo(bag, i))
-         local itemID = select(10, GetContainerItemInfo(bag, i))
+      for i = 1, C_Container.GetContainerNumSlots(bag) do
+         local count = select(2, C_Container.GetContainerItemInfo(bag, i))
+         local lootable = select(6, C_Container.GetContainerItemInfo(bag, i))
+         local itemID = select(10, C_Container.GetContainerItemInfo(bag, i))
          if lootable or util.setContains(LootableItems, itemID) then
             local idx = GetBagSlotIdx(bag, i)
             util.addToSet(BagLootables, idx, itemID)

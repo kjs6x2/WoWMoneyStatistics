@@ -120,8 +120,8 @@ function Prototype_Tooltip:Init(anchor)
    TooltipHeaderFontName, TooltipHeaderFontHeight, TooltipHeaderFontFlags = GameTooltipHeaderText:GetFont()
    FontName, FontHeight, FontFlags = GameTooltipText:GetFont()
 
-   GameTooltipHeaderText:SetFont(fonts[self.Font], self.FontHeight, nil)
-   GameTooltipText:SetFont(fonts[self.Font], self.FontHeight, nil)
+   GameTooltipHeaderText:SetFont(fonts[self.Font], self.FontHeight, '')
+   GameTooltipText:SetFont(fonts[self.Font], self.FontHeight, '')
 
    if profile.GetElvUIFontSetting() then
       cTooltipFont(GameTooltipHeaderText)

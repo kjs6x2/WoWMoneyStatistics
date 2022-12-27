@@ -137,6 +137,6 @@ function cTooltipFont(tooltip)
 
       font = gsub(font, "/", "//")
 
-      tooltip:SetFont(font, fontSize, outline)
+      tooltip:FontTemplate(font, fontSize, outline)
    end
 end

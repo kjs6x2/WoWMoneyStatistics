@@ -1,3 +1,6 @@
+v2.3.2
+- Updates for DF
+
 v2.3.1-a02
 - Fix Issue #1 - Sending money through mail with TSM incorrectly categorizes money as postage
 
