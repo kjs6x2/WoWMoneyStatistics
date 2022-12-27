@@ -21,9 +21,9 @@ function mt.GetBagsValue()
    local value = 0
    local itemCount = 0
    for i = 0, NUM_BAG_FRAMES do
-      for j = 1, GetContainerNumSlots(i) do
-         local count = select(2, GetContainerItemInfo(i, j))
-         local hasNoValue, itemID = select(9, GetContainerItemInfo(i, j))
+      for j = 1, C_Container.GetContainerNumSlots(i) do
+         local count = select(2, C_Container.GetContainerItemInfo(i, j))
+         local hasNoValue, itemID = select(9, C_Container.GetContainerItemInfo(i, j))
 
          if count then
             itemCount = itemCount + count
