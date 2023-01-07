@@ -1,3 +1,5 @@
+local DropDownLib = LibStub:GetLibrary("LibUIDropDownMenu-4.0")
+
 Prototype_Menu =
 {
    OnLoad = nil,
@@ -7,10 +9,9 @@ function Prototype_Menu:NewContextMenu(name, o)
    o = o or {}
    setmetatable(o, self)
    self.__index = self
-   o.menu = L_Create_UIDropDownMenu(name, UIParent)
-   o.menu.isOpen = false
+   o.menu = DropDownLib:Create_UIDropDownMenu(name, UIParent)
 
-   L_UIDropDownMenu_Initialize(o.menu, o.OnLoad, "MENU", 1)
+   DropDownLib:UIDropDownMenu_Initialize(o.menu, o.OnLoad, "MENU", 1)
 
    return o
 end
@@ -19,10 +20,9 @@ function Prototype_Menu:NewDropDownMenu(name, parent, o)
    o = o or {}
    setmetatable(o, self)
    self.__index = self
-   o.menu = L_Create_UIDropDownMenu(name, parent)
-   o.menu.isOpen = false
+   o.menu = DropDownLib:Create_UIDropDownMenu(name, parent)
 
-   L_UIDropDownMenu_Initialize(o.menu, o.OnLoad)
+   DropDownLib:UIDropDownMenu_Initialize(o.menu, o.OnLoad)
 
    return o
 end
@@ -32,7 +32,7 @@ function Prototype_Menu:AddOption(text, level, func)
    info.text = text
    info.notCheckable = 1
    info.func = func
-   L_UIDropDownMenu_AddButton(info, level)
+   DropDownLib:UIDropDownMenu_AddButton(info, level)
 end
 
 function Prototype_Menu:AddDescriptor(text, level, isTitle)
@@ -44,7 +44,7 @@ function Prototype_Menu:AddDescriptor(text, level, isTitle)
       info.notClickable = 1
    end
    info.notCheckable = 1
-   L_UIDropDownMenu_AddButton(info, level)
+   DropDownLib:UIDropDownMenu_AddButton(info, level)
 end
 
 function Prototype_Menu:AddRadioOption(text, checkFunc, level, func)
@@ -53,7 +53,7 @@ function Prototype_Menu:AddRadioOption(text, checkFunc, level, func)
    info.checked = checkFunc
    info.func = func
    info.keepShownOnClick = true
-   L_UIDropDownMenu_AddButton(info, level)
+   DropDownLib:UIDropDownMenu_AddButton(info, level)
 end
 
 function Prototype_Menu:AddCheckOption(text, checkFunc, level, func)
@@ -63,7 +63,7 @@ function Prototype_Menu:AddCheckOption(text, checkFunc, level, func)
    info.func = func
    info.keepShownOnClick = true
    info.isNotRadio = true
-   L_UIDropDownMenu_AddButton(info, level)
+   DropDownLib:UIDropDownMenu_AddButton(info, level)
 end
 
 function Prototype_Menu:AddMenu(text, level, menuList)
@@ -73,12 +73,10 @@ function Prototype_Menu:AddMenu(text, level, menuList)
    info.hasArrow = true
    info.notCheckable = 1
 
-   L_UIDropDownMenu_AddButton(info, level)
+   DropDownLib:UIDropDownMenu_AddButton(info, level)
 end
 
 function Prototype_Menu:ToggleMenu(anchor)
-   self.menu.isOpen = not self.menu.isOpen
-
    local sw = GetScreenWidth()
    local sh = GetScreenHeight()
    local ax = anchor:GetLeft()
@@ -102,7 +100,7 @@ function Prototype_Menu:ToggleMenu(anchor)
       end
    end
 
-   L_ToggleDropDownMenu(1, nil, self.menu, anchor, 0, 0)
+   DropDownLib:ToggleDropDownMenu(1, nil, self.menu, anchor, 0, 0)
 end
 
 function Prototype_Menu:OpenMenu(anchor)
@@ -114,28 +112,24 @@ function Prototype_Menu:OpenMenu(anchor)
 end
 
 function Prototype_Menu:CloseMenu()
-   --if not self:IsMenuOpen() then
-      --return
-   --end
-   --self:ToggleMenu()
-   self.menu.isOpen = false
-   L_CloseDropDownMenus()
+   DropDownLib:CloseDropDownMenus()
 end
 
 function Prototype_Menu:Refresh()
-   L_UIDropDownMenu_RefreshAll(self.menu, nil)
+   DropDownLib:UIDropDownMenu_RefreshAll(self.menu, nil)
 end
 
 function Prototype_Menu:IsMenuOpen()
-   return self.menu.isOpen
+	local listFrame = _G["L_DropDownList1"];
+   return listFrame:IsShown()
 end
 
 function Prototype_Menu:SetWidth(w)
-   L_UIDropDownMenu_SetWidth(self.menu, w)
+   DropDownLib:UIDropDownMenu_SetWidth(self.menu, w)
 end
 
 function Prototype_Menu:SetText(text)
-   L_UIDropDownMenu_SetText(self.menu, text)
+   DropDownLib:UIDropDownMenu_SetText(self.menu, text)
 end
 
 function Prototype_Menu:SetPoint(point, relativeFrame, relativePoint, ofsx, ofsy)
@@ -146,16 +140,4 @@ function Prototype_Menu:SetPoint(point, relativeFrame, relativePoint, ofsx, ofsy
    else
       self.menu:SetPoint(point)
    end
-end
-------------------------------------------------------------------------------------------------------
--- Hooks
-------------------------------------------------------------------------------------------------------
--- This is needed to update my counter when a dropdown hides.  Without this, MenuOpen becomes outdated
--- when a menu times out and auto-hides.
-local onHide = L_UIDropDownMenu_OnHide
-function L_UIDropDownMenu_OnHide(self)
-   if self:GetID() == 1 and self.dropdown.isOpen == true then
-      self.dropdown.isOpen = false
-   end
-   onHide(self)
 end

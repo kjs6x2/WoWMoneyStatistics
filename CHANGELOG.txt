@@ -1,3 +1,7 @@
+v2.3.3
+- Updated version of LibDropDownMenu to 4.0 to resolve issues with conflicts
+with WeakAuras
+
 v2.3.2
 - Updates for DF
 

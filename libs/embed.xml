@@ -5,7 +5,6 @@
    <Script file="LibDBIcon-1.0/LibDBIcon-1.0.lua"/>
 
    <Script file="LibUIDropDownMenu/LibUIDropDownMenu.lua"/>
-   <Script file="LibUIDropDownMenu/LibUIDropDownMenuTemplates.lua"/>
 
    <Script file="LG\LibGraph-2.0.lua"/>
    <Script file="Prototype_Menu.lua"/>
